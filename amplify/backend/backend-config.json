@@ -1,0 +1,9 @@
+{
+	"function": {
+		"jamstackecommerce8f9c230cPostConfirmation": {
+			"build": true,
+			"providerPlugin": "awscloudformation",
+			"service": "Lambda"
+		}
+	}
+}

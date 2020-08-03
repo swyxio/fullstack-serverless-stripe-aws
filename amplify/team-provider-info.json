@@ -1,0 +1,22 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-jamstackecommerce-dev-02340-authRole",
+            "UnauthRoleArn": "arn:aws:iam::754933769358:role/amplify-jamstackecommerce-dev-02340-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::754933769358:role/amplify-jamstackecommerce-dev-02340-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-jamstackecommerce-dev-02340-deployment",
+            "UnauthRoleName": "amplify-jamstackecommerce-dev-02340-unauthRole",
+            "StackName": "amplify-jamstackecommerce-dev-02340",
+            "StackId": "arn:aws:cloudformation:us-east-1:754933769358:stack/amplify-jamstackecommerce-dev-02340/b3e179c0-d5a5-11ea-9b3e-0e2e9aec3a21",
+            "AmplifyAppId": "d1z49p0rky7gwx"
+        },
+        "categories": {
+            "function": {
+                "jamstackecommerce8f9c230cPostConfirmation": {
+                    "GROUP": "Admin"
+                }
+            }
+        }
+    }
+}
