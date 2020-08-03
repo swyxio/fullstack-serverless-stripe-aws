@@ -16,6 +16,9 @@
                 "jamstackecommerce8f9c230cPostConfirmation": {
                     "GROUP": "Admin"
                 }
+            },
+            "auth": {
+                "jamstackecommerce8f9c230c": {}
             }
         }
     }

@@ -5,5 +5,22 @@
 			"providerPlugin": "awscloudformation",
 			"service": "Lambda"
 		}
+	},
+	"auth": {
+		"jamstackecommerce8f9c230c": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [
+				{
+					"category": "function",
+					"resourceName": "jamstackecommerce8f9c230cPostConfirmation",
+					"triggerProvider": "Cognito",
+					"attributes": [
+						"Arn",
+						"Name"
+					]
+				}
+			]
+		}
 	}
 }
