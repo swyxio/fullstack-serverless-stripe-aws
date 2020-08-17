@@ -11,7 +11,6 @@ const Home = ({ data: gqlData }) => {
   const { inventoryInfo, categoryInfo: { data }} = gqlData
   const categories = data.slice(0, 2)
   const inventory = inventoryInfo.data.slice(0, 4)
-
   return (
     <>
       <CartLink />
@@ -24,7 +23,7 @@ const Home = ({ data: gqlData }) => {
           <div className="pt-4 pl-2 sm:pt-12 sm:pl-12 flex flex-col">
             <Tag
               year="2020"
-              category="SOFAS"
+              category="SURF"
             />
             <Center
               price="200"

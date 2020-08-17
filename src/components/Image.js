@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react"
 import {Storage} from 'aws-amplify'
 async function fetchImage(src, updateSrc) {
-  if (src.startsWith('https://')) {
-    updateSrc(src)
-  } else {
+  if (!src.includes('downloads')) {
     const image = await Storage.get(src)
     updateSrc(image)
-  }
+  } else { updateSrc(src) }
 }
 
 const Image = ({ src, ...props}) => {
