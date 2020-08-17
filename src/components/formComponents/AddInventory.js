@@ -1,4 +1,7 @@
 import React from 'react'
+import { API, Storage } from 'aws-amplify';
+import {createProduct} from '../../graphql/mutations'
+import uuid from 'uuid/v4'
 
 const initialState = {
   name: '', brand: '', price: '', categories: [], image: '', description: '', currentInventory: ''
@@ -14,16 +17,22 @@ class AddInventory extends React.Component {
   }
   onImageChange = async (e) => {
     const file = e.target.files[0];
-    this.setState({ image: file })
-    // const storageUrl = await Storage.put('example.png', file, {
-    //     contentType: 'image/png'
-    // })
-    // this.setState({ image: storageUrl  })
+    const filename = uuid() + file.name
+    const storageUrl = await Storage.put(filename, file, {
+        contentType: file.type
+    })
+    console.log({storageUrl})
+    this.setState({ image: storageUrl.key  })
   }
   addItem = async () => {
     const { name, brand, price, categories, image, description, currentInventory } = this.state
     if (!name || !brand || !price || !categories.length || !description || !currentInventory || !image) return
     // add to database
+    // GRAPHQL https://docs.amplify.aws/lib/graphqlapi/mutate-data/q/platform/js
+    console.log({state: this.state})
+    await API.graphql({query: createProduct, variables: {
+      input: this.state
+    } })
     this.clearForm()
   }
   render() {
@@ -46,7 +55,7 @@ class AddInventory extends React.Component {
               </div>
               <div className="mb-4">
                 <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="price">
-                  Item price
+                  Item price (DONT FORGET THIS IS IN CENTS!!!!)
                 </label>
                 <input
                 onChange={this.onChange}

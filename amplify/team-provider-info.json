@@ -12,13 +12,14 @@
             "AmplifyAppId": "d1z49p0rky7gwx"
         },
         "categories": {
-            "function": {
-                "jamstackecommerce8f9c230cPostConfirmation": {
-                    "GROUP": "Admin"
-                }
-            },
             "auth": {
                 "jamstackecommerce8f9c230c": {}
+            },
+            "hosting": {
+                "amplifyhosting": {
+                    "appId": "d1z49p0rky7gwx",
+                    "type": "manual"
+                }
             }
         }
     }

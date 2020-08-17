@@ -1,6 +1,6 @@
 {
     "identityPoolName": "jamstackecommerce8f9c230c_identitypool_8f9c230c",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "jamsta8f9c230c",
     "userPoolName": "jamstackecommerce8f9c230c_userpool_8f9c230c",
     "autoVerifiedAttributes": [

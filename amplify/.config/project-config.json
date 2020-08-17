@@ -1,4 +1,7 @@
 {
+    "providers": [
+        "awscloudformation"
+    ],
     "projectName": "jamstackecommerce",
     "version": "3.0",
     "frontend": "javascript",
@@ -6,12 +9,9 @@
         "framework": "react",
         "config": {
             "SourceDir": "src",
-            "DistributionDir": "build",
+            "DistributionDir": "public",
             "BuildCommand": "npm run-script build",
             "StartCommand": "npm run-script start"
         }
-    },
-    "providers": [
-        "awscloudformation"
-    ]
+    }
 }

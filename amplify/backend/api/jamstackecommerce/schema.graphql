@@ -1,0 +1,28 @@
+type Product
+  @model
+  @auth(
+    rules: [
+      { allow: public, operations: [read] }
+      { allow: groups, groups: ["Admin"] }
+    ]
+  ) {
+  id: ID!
+  categories: [String]!
+  price: Int!
+  prices: [Price]
+  name: String!
+  image: String!
+  description: String!
+  currentInventory: Int!
+  brand: String
+}
+enum Currency {
+  USD
+  EUR
+  JPY
+}
+type Price {
+  id: ID!
+  price: Int!
+  currency: Currency!
+}

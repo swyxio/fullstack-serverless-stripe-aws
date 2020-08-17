@@ -102,8 +102,9 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "amplify-jamstackecommerce-dev-02340-deployment",
-					"S3Key": "amplify-builds/jamstackecommerce8f9c230cPostConfirmation-755a6446764f2b5a2f64-build.zip"
-				}
+					"S3Key": "amplify-builds/jamstackecommerce8f9c230cPostConfirmation-4f4c45506d526c666749-build.zip"
+				},
+				"Layers": []
 			}
 		},
 		"LambdaExecutionRole": {

@@ -3,7 +3,8 @@
 		"jamstackecommerce8f9c230cPostConfirmation": {
 			"build": true,
 			"providerPlugin": "awscloudformation",
-			"service": "Lambda"
+			"service": "Lambda",
+			"dependsOn": []
 		}
 	},
 	"auth": {
@@ -21,6 +22,44 @@
 					]
 				}
 			]
+		}
+	},
+	"hosting": {
+		"amplifyhosting": {
+			"service": "amplifyhosting",
+			"providerPlugin": "awscloudformation",
+			"type": "manual"
+		}
+	},
+	"api": {
+		"jamstackecommerce": {
+			"service": "AppSync",
+			"providerPlugin": "awscloudformation",
+			"output": {
+				"authConfig": {
+					"defaultAuthentication": {
+						"authenticationType": "AMAZON_COGNITO_USER_POOLS",
+						"userPoolConfig": {
+							"userPoolId": "authjamstackecommerce8f9c230c"
+						}
+					},
+					"additionalAuthenticationProviders": [
+						{
+							"authenticationType": "API_KEY",
+							"apiKeyConfig": {
+								"apiKeyExpirationDays": 7,
+								"description": ""
+							}
+						}
+					]
+				}
+			}
+		}
+	},
+	"storage": {
+		"images": {
+			"service": "S3",
+			"providerPlugin": "awscloudformation"
 		}
 	}
 }

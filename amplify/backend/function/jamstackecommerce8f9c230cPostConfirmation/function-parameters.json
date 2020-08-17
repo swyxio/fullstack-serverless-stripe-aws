@@ -12,5 +12,6 @@
   "triggerTemplate": "PostConfirmation.json.ejs",
   "roleName": "jamstackecommerce8f9c230cPostConfirmation",
   "skipEdit": true,
-  "GROUP": "Admin"
+  "GROUP": "Admin",
+  "lambdaLayers": []
 }

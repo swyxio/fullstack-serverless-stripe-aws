@@ -103,7 +103,7 @@ Parameters:
                       
   userPoolGroupList:
     Type: CommaDelimitedList
-                        
+            
   parentStack:
     Type: String
                 
