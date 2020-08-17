@@ -1,0 +1,35 @@
+{
+    "paths": [
+        {
+            "name": "/createOrder",
+            "lambdaFunction": "createOrder",
+            "privacy": {
+                "open": true
+            }
+        }
+    ],
+    "resourceName": "stripe",
+    "apiName": "stripe",
+    "functionArns": [
+        {
+            "lambdaFunction": "createOrder"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "amplify-jamstackecommerce-dev-02340-authRole",
+        "unAuthRoleName": "amplify-jamstackecommerce-dev-02340-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "createOrder",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ],
+    "uuid": "ad70bd54"
+}

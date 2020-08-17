@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "api": {
+      "jamstackecommerce": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    }
+  },
+  "lambdaLayers": []
+}

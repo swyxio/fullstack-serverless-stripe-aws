@@ -27,7 +27,7 @@ function formatNum({ number, currency }) {
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
-const stripePromise = loadStripe("pk_test_DvXwcKnVaaZUpWJIbh9cjgZr00IjIAjZAA")
+const stripePromise = loadStripe("pk_test_51HHBdCI47GioEOFgneWClc8DhwkxnaSydcbzlsl27yoAxZq1OB82EH7c17ocCVQXDHSQFMQKP9XhUOvHdNFGlB6o00xlrcZ5Nw")
 
 function CheckoutWithContext(props) {
   return (
@@ -81,7 +81,7 @@ const Checkout = ({ context }) => {
   const handleSubmit = async event => {
     event.preventDefault()
     const { name, email, street, city, postal_code, state } = input
-    const { total, clearCart } = context
+    const { total, clearCart, cart } = context
 
     if (!stripe || !elements) {
       // Stripe.js has not loaded yet. Make sure to disable
@@ -111,7 +111,6 @@ const Checkout = ({ context }) => {
       setErrorMessage(error.message)
       return
     }
-
     const order = {
       email,
       amount: total,
@@ -119,6 +118,7 @@ const Checkout = ({ context }) => {
       payment_method_id: paymentMethod.id,
       receipt_email: "customer@example.com",
       id: uuid(),
+      items: cart
     }
     console.log("order: ", order)
     // TODO call API
@@ -127,6 +127,7 @@ const Checkout = ({ context }) => {
   }
 
   const { numberOfItemsInCart, cart, total } = context
+  console.log(cart)
   const cartEmpty = numberOfItemsInCart === Number(0)
 
   if (orderCompleted) {

@@ -1,0 +1,8 @@
+{
+  "httpMethod": "POST",
+  "path": "/createOrder",
+  "content-type": "application/json",
+  "body": "{\"email\":\"slkdj@lkjsd.com\",\"amount\":2300,\"address\":\"lkjslkdj\",\"payment_method_id\":\"pm_1HHCLCI47GioEOFgKeBguuXU\",\"receipt_email\":\"customer@example.com\",\"id\":\"b1176862-e817-4989-98d0-b5d0d1a28479\",\"items\":[{\"id\":\"65900818-2916-4997-969f-50760e168706\",\"categories\":[\"yellow\"],\"price\":2300,\"name\":\"yellow board\",\"image\":\"../downloads/15f0e292-be10-49c3-9769-4304c711e8fedendy-darma-XFMjz4X3hGs-unsplash.jpg\",\"description\":\"yello board\",\"currentInventory\":232,\"brand\":\"yellowbord\",\"quantity\":1}]}",
+  "resource": "/{proxy+}",
+  "queryStringParameters": {}
+}

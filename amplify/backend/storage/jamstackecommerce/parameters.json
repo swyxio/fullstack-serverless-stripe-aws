@@ -1,0 +1,5 @@
+{
+    "tableName": "jamstackecommerce",
+    "partitionKeyName": "id",
+    "partitionKeyType": "S"
+}
