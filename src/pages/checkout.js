@@ -15,6 +15,16 @@ import {
 } from "@stripe/react-stripe-js"
 import { loadStripe } from "@stripe/stripe-js"
 
+
+function formatNum({ number, currency }) {
+  const locale = typeof window !== "undefined" ? "en-US" : navigator.language
+  const result = new Intl.NumberFormat(locale, {
+    style: "currency",
+    currency,
+  }).format((number / 100).toFixed(2))
+  return result
+}
+
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
 const stripePromise = loadStripe("pk_test_DvXwcKnVaaZUpWJIbh9cjgZr00IjIAjZAA")
@@ -164,7 +174,7 @@ const Checkout = ({ context }) => {
                       </p>
                       <div className="flex flex-1 justify-end">
                         <p className="m-0 pl-10 text-gray-900 tracking-tighter font-semibold">
-                          {DENOMINATION + item.price}
+                          {formatNum({ currency: 'USD', number: item.price })}
                         </p>
                       </div>
                     </div>
@@ -230,7 +240,7 @@ const Checkout = ({ context }) => {
                 <div className="ml-4 pl-2 flex flex-1 justify-end pt-2 md:pt-8 pr-4">
                   <p className="text-sm pr-10">Subtotal</p>
                   <p className="tracking-tighter w-38 flex justify-end">
-                    {DENOMINATION + total}
+                    {formatNum({ currency: 'USD', number: total })}
                   </p>
                 </div>
                 <div className="ml-4 pl-2 flex flex-1 justify-end pr-4">
@@ -242,7 +252,7 @@ const Checkout = ({ context }) => {
                 <div className="md:ml-4 pl-2 flex flex-1 justify-end bg-gray-200 pr-4 pt-6">
                   <p className="text-sm pr-10">Total</p>
                   <p className="font-semibold tracking-tighter w-38 flex justify-end">
-                    {DENOMINATION + (total + calculateShipping())}
+                    {formatNum({ currency: 'USD', number: total + calculateShipping() })}
                   </p>
                 </div>
                 <button

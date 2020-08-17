@@ -7,6 +7,14 @@ import Button from '../components/Button'
 import Image from '../components/Image'
 import QuantityPicker from '../components/QuantityPicker'
 
+function formatNum({ number, currency }) {
+  const locale = typeof window !== "undefined" ? "en-US" : navigator.language
+  const result = new Intl.NumberFormat(locale, {
+    style: "currency",
+    currency,
+  }).format((number / 100).toFixed(2))
+  return result
+}
 const ItemView = (props) => {
   const [numberOfitems, updateNumberOfItems] = useState(1)
   const item = props.pageContext.content
@@ -43,7 +51,7 @@ const ItemView = (props) => {
         </div>
         <div className="pt-2 px-0 md:px-10 pb-8 w-full md:w-1/2">
           <h1 className="text-5xl font-light">{name}</h1>
-          <h2 className="text-2xl tracking-tighter">${price}</h2>
+          <h2 className="text-2xl tracking-tighter">{formatNum({ currency: "USD", number: price })}</h2>
           <p className="text-gray-600 text-sm">{description}</p>
           <div className="mb-6">
             <QuantityPicker

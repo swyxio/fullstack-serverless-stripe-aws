@@ -14,7 +14,6 @@ function formatNum({ number, currency }) {
     style: "currency",
     currency,
   }).format((number / 100).toFixed(2))
-  console.log(result)
   return result
 }
 class ViewInventory extends React.Component {

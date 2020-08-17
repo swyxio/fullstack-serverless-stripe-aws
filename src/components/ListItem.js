@@ -3,6 +3,16 @@ import { Link } from 'gatsby'
 import { DENOMINATION } from '../../providers/inventoryProvider'
 import Image from './Image'
 
+
+function formatNum({ number, currency }) {
+  const locale = typeof window !== "undefined" ? "en-US" : navigator.language
+  const result = new Intl.NumberFormat(locale, {
+    style: "currency",
+    currency,
+  }).format((number / 100).toFixed(2))
+  return result
+}
+
 const ListItem = ({ link, title, imageSrc, price }) =>  (
   <div className="
     w-100
@@ -19,7 +29,7 @@ const ListItem = ({ link, title, imageSrc, price }) =>  (
     </Link>
     <div>
       <p className="m-4 text-center text-l font-semibold mb-1">{title}</p>
-      <p className="text-center text-xs text-gray-700 mb-4">{`${DENOMINATION}${price}`}</p>
+      <p className="text-center text-xs text-gray-700 mb-4">{formatNum({ currency: "USD", number: price })}</p>
     </div>
   </div>
 )

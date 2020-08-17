@@ -9,6 +9,14 @@ import QuantityPicker from '../components/QuantityPicker'
 import { slugify } from '../../utils/helpers'
 import Image from '../components/Image'
 
+function formatNum({ number, currency }) {
+  const locale = typeof window !== "undefined" ? "en-US" : navigator.language
+  const result = new Intl.NumberFormat(locale, {
+    style: "currency",
+    currency,
+  }).format((number / 100).toFixed(2))
+  return result
+}
 const Cart = ({ context }) => {
   const {
     numberOfItemsInCart, cart, removeFromCart, total, setItemQuantity
@@ -70,7 +78,7 @@ const Cart = ({ context }) => {
                             </div>
                             <div className="flex flex-1 justify-end">
                               <p className="m-0 pl-10 text-gray-900 tracking-tighter font-semibold">
-                                {DENOMINATION + item.price}
+                                {formatNum({ currency: 'USD', number: item.price })}
                               </p>
                             </div>
                             <div role="button" onClick={() => removeFromCart(item)} className="
@@ -103,7 +111,7 @@ const Cart = ({ context }) => {
                               </div>
                               <div className="flex flex-1">
                                 <p className="text-lg m-0 pl-6 pt-4 text-gray-900 tracking-tighter font-semibold">
-                                  {DENOMINATION + item.price}
+                                  {formatNum({ currency: 'USD', number: item.price })}
                                 </p>
                               </div>
                             </div>
@@ -123,7 +131,7 @@ const Cart = ({ context }) => {
           }
           <div className="flex flex-1 justify-end py-8">
             <p className="text-sm pr-10">Total</p>
-            <p className="font-semibold tracking-tighter">{DENOMINATION + total}</p>
+            <p className="font-semibold tracking-tighter">{formatNum({ currency: 'USD', number: total })}</p>
           </div>
           {!cartEmpty && (
             <Link to="/checkout" className="flex flex-1 justify-end">

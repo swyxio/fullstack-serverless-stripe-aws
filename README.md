@@ -2,7 +2,9 @@
 
 A livestream by [Thor](https://twitter.com/thorwebdev) and [Swyx](https://twitter.com/swyx)!
 
-Original project: https://dev.to/aws/building-a-serverless-jamstack-ecommerce-store-with-gatsby-aws-303f
+- Live Demo: 
+https://dev.d1z49p0rky7gwx.amplifyapp.com
+- Original project: https://dev.to/aws/building-a-serverless-jamstack-ecommerce-store-with-gatsby-aws-303f
 
 Livestreams:
 
